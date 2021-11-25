@@ -1,5 +1,8 @@
+import { taks } from './tasksarray'
+
 export const resolvers = {
     Query: {
+
         hello : () => {
             return 'Hello World with graphql'
         },
@@ -7,6 +10,9 @@ export const resolvers = {
             console.log(args.name)
             return `Dado ${args.name} Guardado`
 
+        },
+        task: () => {
+            return taks
         }
     }
 }

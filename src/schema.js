@@ -4,6 +4,14 @@ const typeDef = `
 type Query {
     hello:String
     greet(name:String!): String
+    task:[Task]
+}
+
+type Task {
+    id: ID
+    title:String!
+    description:String!
+    number:Int!
 }
 
 `
