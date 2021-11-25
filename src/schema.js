@@ -10,8 +10,18 @@ type Query {
 type Task {
     id: ID
     title:String!
-    description:String!
+    descripition:String!
     number:Int!
+}
+
+type Mutation {
+    createTask(input: taskInput):Task
+}
+
+input taskInput {
+    title: String!
+    descripition: String
+    number: Int
 }
 
 `
