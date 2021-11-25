@@ -3,6 +3,7 @@ import { resolvers } from './resolvers'
 const typeDef = `
 type Query {
     hello:String
+    greet(name:String!): String
 }
 
 `

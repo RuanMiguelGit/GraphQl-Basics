@@ -12,4 +12,4 @@ app.use('/graphql', graphqlHTTP({
     schema:schema
 }))
 
-app.listen(3000, () => console.log('servidor online'))
+app.listen(3001, () => console.log('servidor online'))
