@@ -5,6 +5,7 @@ type Query {
     hello:String
     greet(name:String!): String
     task:[Task]
+    User:[User]
 }
 
 type Task {

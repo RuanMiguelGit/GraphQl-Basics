@@ -15,6 +15,10 @@ export const resolvers = {
         task: () => {
             return taks
         },
+         User: async () => {
+            const Users = await User.find()
+            return Users
+        }
     },
     Mutation : {
         createTask(_, {input}){
