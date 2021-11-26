@@ -1,4 +1,5 @@
 import { taks } from './tasksarray'
+import User from './models/User'
 
 export const resolvers = {
     Query: {
@@ -13,13 +14,18 @@ export const resolvers = {
         },
         task: () => {
             return taks
-        }
+        },
     },
     Mutation : {
         createTask(_, {input}){
             input.id = taks.length
             taks.push(input)
             return input
+        }, 
+        async createUser(_, { input }){
+            const  newUser = new User(input)
+            await newUser.save()
+            return newUser
         }
     }
 }
