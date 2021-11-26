@@ -25,6 +25,8 @@ type User {
 type Mutation {
     createTask(input: taskInput):Task
     createUser(input: userInput):User
+    deleteUser(id:ID):User
+    updateUser(id:ID, input:userInput):User
 }
 
 input taskInput {
