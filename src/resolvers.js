@@ -1,4 +1,5 @@
 import { taks } from './tasksarray'
+import User from './models/User'
 
 export const resolvers = {
     Query: {
@@ -13,6 +14,10 @@ export const resolvers = {
         },
         task: () => {
             return taks
+        },
+         User: async () => {
+            const Users = await User.find()
+            return Users
         }
     },
     Mutation : {
@@ -20,6 +25,19 @@ export const resolvers = {
             input.id = taks.length
             taks.push(input)
             return input
+        }, 
+        async createUser(_, { input }){
+            const  newUser = new User(input)
+            await newUser.save()
+            return newUser
+        },
+        async deleteUser(_, {id}) {
+            const deleteUser = await User.findById(id)
+            return deleteUser
+        },
+        async updateUser(_, {id, input}){
+            const userUpdated = await User.findByIdAndUpdate(id, input)
+            return userUpdated
         }
     }
 }
